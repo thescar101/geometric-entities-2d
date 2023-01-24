@@ -10,10 +10,10 @@ C++ implementation of the following geometric entities:
 
 Created for CIS4930 Geometric Data Structures and Algorithms.
 
-## How to compile and run the test program on Linux
+## Compile and test on Linux
 
-Before starting, you will need to install git and g++.
-On Debian or Ubuntu, both can be installed from the terminal with:
+Before starting, you will need git and g++.
+On Debian and Ubuntu, open a terminal and install both with:
 ```
 sudo apt install git build-essential
 ```
@@ -34,7 +34,7 @@ Run the test program:
 ./test
 ```
 
-It should print out:
+It should print:
 ```
 Test successful.
 ```
