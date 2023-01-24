@@ -17,9 +17,10 @@ On Debian and Ubuntu, open a terminal and install both with:
 ```
 sudo apt install git build-essential
 ```
-(NOTE: I think UF CISE's Linux servers already have git and g++ installed, so skip this step.) 
+NOTE: If you are using UF CISE's Linux servers, you can skip the step above.
+Git and g++ are already installed, and students don't have sudo privileges on those machines anyway. 
 
-Download this repository and enter the newly created directory:
+Next, download this repository and enter the newly created directory:
 ```
 git clone https://github.com/rb-uf/geometric-entities-2d
 cd geometric-entities-2d
