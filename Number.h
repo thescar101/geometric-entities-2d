@@ -1,17 +1,19 @@
 #pragma once
-#include <gmp.h>
+#include <stdio.h>
+#include <gmpxx.h>
 #include <iostream>
 #include <stdexcept>
+#include <memory>
 using namespace std;
 
 class Number{
-	mpq_t number;
 
 public:
     // Constructors/Deconstructor
-    Number();
-    Number(const double& d);
+    Number(); // Default Constructor: Initialized to 0
+    Number(const double& d); // String Constructor "xxx.xxx"
     Number(const Number& n);
+    Number(Number&& n); // Move Constructor
     ~Number();
 
     // Arithmetic Operators
@@ -38,5 +40,11 @@ public:
 
     // Extraction Operator
     friend ostream& operator<<(ostream& os, const Number& n);
+
+    private:
+
+    class Impl;
+
+    unique_ptr<Impl> pimpl;
 
 };
