@@ -207,6 +207,11 @@ std::string output_string(mpq_class value)
         n++;
     }
 
+    if (denom != 1)
+    {
+        
+    }
+
     int maxPower = std::max(m, n);
     numer *= pow(2, maxPower - m) * pow(5, maxPower - n);
 
@@ -246,6 +251,7 @@ Number sqrt(const Number& n)
     // to preserve the precision of the denominator
     squareRoot.pimpl->value.get_num() = numer * denom;
     squareRoot.pimpl->value.get_den() = oldDenom;
-    
+    squareRoot.pimpl->value.canonicalize();
+
     return squareRoot;
 }
