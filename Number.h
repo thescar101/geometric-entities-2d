@@ -1,18 +1,14 @@
-#pragma once
-#include <stdio.h>
-#include <gmpxx.h>
-#include <iostream>
-#include <stdexcept>
-#include <memory>
-using namespace std;
+#ifndef NUMBER_H
+#define NUMBER_H
+#include <string>
 
-class Number{
-
+class Number
+{
 public:
     // Constructors/Deconstructor
     Number(); // Default Constructor: Initialized to 0
-    Number(const double& d); // String Constructor "xxx.xxx"
-    Number(const Number& n);
+    Number(std::string s); // String Constructor "xxx.xxx"
+    Number(const Number& n); // Copy Constructor
     Number(Number&& n); // Move Constructor
     ~Number();
 
@@ -31,20 +27,28 @@ public:
     bool operator<=(const Number& n) const;
 
     // Assignment Operators
-	Number& operator=(const double& d);
+	Number& operator=(std::string s);
+    Number& operator=(Number&& n);
     Number& operator=(const Number& n);
     Number& operator+=(const Number& n);
     Number& operator-=(const Number& n);
     Number& operator*=(const Number& n);
     Number& operator/=(const Number& n);
 
-    // Extraction Operator
-    friend ostream& operator<<(ostream& os, const Number& n);
+    // Input Operator
+    friend std::istream& operator>>(std::istream& is, Number& n);
+
+    // Output Operator
+    friend std::ostream& operator<<(std::ostream& os, const Number& n);
+
+    friend Number sqrt(const Number& n);
 
     private:
-
-    class Impl;
-
-    unique_ptr<Impl> pimpl;
+        struct Impl;
+        Impl* pimpl;
 
 };
+
+
+
+#endif // NUMBER_H
